@@ -1,4 +1,4 @@
-package com.khj.exam.demo.controller;
+package com.wej.exam.demo.controller;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,6 +33,10 @@ public class UsrArticleController {
 	}
 	
 	@RequestMapping("/usr/article/getArticles")
+	@ResponseBody
+	public List<Article> getArticles(){
+		return articles;
+	}
 	
 }
 

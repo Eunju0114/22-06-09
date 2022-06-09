@@ -1,4 +1,4 @@
-package com.khj.exam.demo.controller;
+package com.wej.exam.demo.controller;
 
 import org.springframework.stereotype.Controller;
 
