@@ -38,5 +38,47 @@ public class UsrArticleController {
 		return articles;
 	}
 	
+	@RequestMapping("/usr/article/doDelete")
+	@ResponseBody
+	public String doDelete(int id){
+		
+		Article article = getArticle(id);
+		
+		if(article == null) {
+			return id + "번 글이 존재하지 않습니다.";
+		}
+			
+		articles.remove(article);
+		
+		return "id : " + id + " 글이 삭제되었습니다.";
+	
+			
+	}
+	
+	@RequestMapping("/usr/article/domodify")
+	@ResponseBody
+	public String domodify(int id, String title, String body){
+		
+		Article article = getArticle(id);
+		article.setTitle(title);
+		article.setBody(body);
+		
+		articles.set(id, article);
+		return "수정완료";
+	}
+	
+	private Article getArticle(int id) {
+			
+		for(Article article : articles){
+			
+			if(article.getId() == id) {
+				return article;
+			}
+		}
+		return null;				
+	}
+
 }
+
+
 
